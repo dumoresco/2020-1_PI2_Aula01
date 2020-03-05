@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 01</title>
+    <link href="estilo.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="cabecalho">
+            <h1 class="titulo">Aula 01</h1>
+            <h2 class="subtitulo">Revisão Javascript</h2>
+        </header>
+
+        <button id="btnGirar" onclick="girar()"> Girar </button>
+
+        <div id="div01" onmouseover="trocaCor()" onmouseout="div01.style.backgroundColor ='red'">
+            
+        </div>
+
+
+        <hr>
+        <div class="mercado">
+            
+        <input style="margin-top: 40px;" type="text"  id="txtTexto" placeholder="Digite...">
+        <button id="btnAdd" onclick="adicionar();">Adicionar</button>
+        <h3>Lista: </h3>
+        <p id="texto"></p>
+
+        </div>
+
+
+    </div>
+
+    <script type="text/javascript">
+        var div01 = document.getElementById('div01')
+        div01.style.width = "150px";
+        div01.style.height = "100px";
+        div01.style.background = "red";
+        div01.style.margin = "0 auto";
+        div01.style.marginTop = "50px";
+        div01.style.marginBottom = "50px";
+        
+
+        var i = 0;
+        
+        function girar(){
+            div01.style.transform = "rotate("+i+"deg)";
+            div01.style.transition = "0.2s";
+            i+=15 ;
+        }
+      
+        function trocaCor(){
+            div01.style.background =  'rgb(52, 126, 238)';
+        }
+
+
+
+        var txtTexto = document.getElementById('txtTexto');
+        var texto = document.getElementById('texto');
+        var array01 = new Array();
+
+        function adicionar(){
+            array01.push( txtTexto.value);
+            array01.sort();
+            txtTexto.value = "";
+            texto.innerHTML = array01.join("<br>");
+
+        }
+
+
+
+    </script>
+
+</body>
+</html>
